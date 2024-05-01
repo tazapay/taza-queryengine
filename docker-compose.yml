@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  trino:
+    image: trinodb/trino
+    container_name: trino
+    ports:
+      - "8080:8080"
+    environment:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      # - AWS_SESSION_TOKEN
+    volumes:
+      - ./iceberg.properties:/etc/trino/catalog/iceberg.properties
